@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright (C) 2018 Jeff Stevens
 # This software is licensed under the GNU GPL v3 https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -202,7 +203,6 @@ def load_balanced_ivl(sched, ivl, _old):
     #-------------Log------------------
 
     return best_ivl
-
 
 #aqt.forms.dconf.Ui_Dialog.setupUi = wrap(aqt.forms.dconf.Ui_Dialog.setupUi, dconfsetupUi, pos="after")
 aqt.forms.dconf.Ui_Dialog.setupUi   = wrap(aqt.forms.dconf.Ui_Dialog.setupUi, setup_ui, pos="after")
