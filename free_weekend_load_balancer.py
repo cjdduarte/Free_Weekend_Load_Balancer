@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2018 Jeff Stevens
-# This software is licensed under the GNU GPL v3 https://www.gnu.org/licenses/gpl-3.0.html
+
+#Copyright(C)| Carlos Duarte
+#Based on    | xquercus code, in add-on "Load Balanced Scheduler"
+#License     | GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html
+#Source in   | https://github.com/cjdduarte/Free_Weekend_Load_Balancer
 
 # LOG_LEVEL = 0  Disables logging.
 # LOG_LEVEL = 1  Logs a one line summary each time a card is load balanced.
