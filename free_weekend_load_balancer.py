@@ -199,7 +199,7 @@ def load_balanced_ivl(sched, ivl, _old):
     elif log_tooltip and ignored_days:
         if log_tooltip == 1:
             mensagem = log_ign_days
-            #tooltip(mensagem, period=3000)
+            tooltip(mensagem, period=3000)
         elif log_tooltip == 2:
             mensagem = log_min_ivl + log_max_ivl + log_best_ivl + log_ign_days
             tooltip(mensagem, period=4000)
