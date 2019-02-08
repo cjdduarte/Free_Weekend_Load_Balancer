@@ -8,6 +8,6 @@ More Information:
 
 https://github.com/cjdduarte/Free_Weekend/blob/master/README.md
 
-Based on | xquercus code, in add-on "Load Balanced Scheduler"
+Based on xquercus code, in add-on <a href="https://github.com/xquercus/load-balanced-scheduler">Load Balanced Scheduler</a>:
 
 License | GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html
