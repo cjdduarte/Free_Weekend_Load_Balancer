@@ -33,31 +33,22 @@ else:
 #seed()
 
 #-------------Configuration------------------
-'''
-try:
+if getattr(getattr(mw, "addonManager", None), "getConfig", None): #Anki 2.1
     config = mw.addonManager.getConfig(__name__)
-except AttributeError:
-    config = dict(days_week=[6], log_tooltip=0, specific_days=["9999/12/31"])
-'''
-if getattr(getattr(mw, "addonManager", None), "getConfig", None):   #Anki 2.1
-    config = mw.addonManager.getConfig(__name__)
-else:                                                               #Anki 2.0
+else:
+    #(Anki 2.0) - you must change these values ​​based on the parameter table
     config = dict(days_week=[6], log_tooltip=0, specific_days=["9999/12/31"])
 
-#-------------Configuration (Anki 2.0) ------------------
+#-------------Parameter Table (Anki 2.0) ------------------
 #days_week      = [6]      #0=Mon, 1=Tue, 2=Wed, 3=Thu, 4=Fri, 5=Sat, 6=Sun, -1=Ignore
 #log_tooltip    = 0        #"0=OFF, 1=Basic, 2=More"
 #specific_days  = ["YYYY/MM/DD", "YYYY/MM/DD"] - Specific days must have quotation marks
-#-------------Configuration (Anki 2.0) ------------------
+#-------------Parameter Table (Anki 2.0) ------------------
+
 days_week       = config['days_week']
 log_tooltip     = config['log_tooltip']
 specific_days   = config['specific_days']
 #-------------Configuration------------------
-
-'''this_script_dir = os.path.dirname(__file__)
-user_files_dir = os.path.join(this_script_dir, 'datas.txt')
-with open(user_files_dir, 'r', encoding='utf-8') as f:
-    datas_arquivo = [line.strip() for line in f]'''
 
 def log_info(message):
     if LOG_LEVEL >= 1:
