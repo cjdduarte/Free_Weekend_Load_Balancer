@@ -37,7 +37,9 @@ if getattr(getattr(mw, "addonManager", None), "getConfig", None): #Anki 2.1
     config = mw.addonManager.getConfig(__name__)
 else:
     #(Anki 2.0) - you must change these values ​​based on the parameter table
+    #----- Modify here ------
     config = dict(days_week=[6], log_tooltip=0, specific_days=["9999/12/31"])
+    #----- Modify here ------
 
 #-------------Parameter Table (Anki 2.0) ------------------
 #days_week      = [6]      #0=Mon, 1=Tue, 2=Wed, 3=Thu, 4=Fri, 5=Sat, 6=Sun, -1=Ignore
