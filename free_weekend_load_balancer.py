@@ -50,6 +50,7 @@ else:
 days_week       = config['days_week']
 log_tooltip     = config['log_tooltip']
 specific_days   = config['specific_days']
+specific_days   = [ datetime.datetime.strftime(datetime.datetime.strptime(x, '%Y/%m/%d'), '%Y/%m/%d') for x in specific_days ] #Bug
 #-------------Configuration------------------
 
 def log_info(message):
