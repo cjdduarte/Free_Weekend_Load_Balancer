@@ -62,42 +62,6 @@ def log_debug(message):
     if LOG_LEVEL >= 2:
         sys.stdout.write(message)
 
-'''def dconfsetupUi(self, Dialog):
-    r=0
-    tabDF = QtWidgets.QWidget()
-    vLayoutDF = QtWidgets.QVBoxLayout(tabDF)
-    layoutDF = QtWidgets.QGridLayout()
-
-    self.defuzz = QtWidgets.QCheckBox(self.tab_3)
-    self.defuzz.setText(_('Disable Free Weekend'))
-    layoutDF.addWidget(self.defuzz, r, 0, 1, 1)
-    r+=1
-
-    lb_defuzz_ivl2 = QtWidgets.QLabel(tabDF)
-    lb_defuzz_ivl2.setText(_("ivl max @ ivl=2:"))
-    layoutDF.addWidget(lb_defuzz_ivl2, r, 0, 1, 1)
-
-    self.defuzz_ivl2 = QtWidgets.QSpinBox(tabDF)
-    self.defuzz_ivl2.setMinimum(2)
-    self.defuzz_ivl2.setMaximum(69)
-    layoutDF.addWidget(self.defuzz_ivl2, r, 1, 1, 1)
-    r+=1
-
-    lb_defuzz_ivl7 = QtWidgets.QLabel(tabDF)
-    lb_defuzz_ivl7.setText(_("%fuzz @ ivl<7: (0=disable)"))
-    layoutDF.addWidget(lb_defuzz_ivl7, r, 0, 1, 1)
-
-    self.defuzz_ivl7 = QtWidgets.QSpinBox(tabDF)
-    self.defuzz_ivl7.setMinimum(0)
-    self.defuzz_ivl7.setMaximum(666)
-    layoutDF.addWidget(self.defuzz_ivl7, r, 1, 1, 1)
-    r+=1
-
-    vLayoutDF.addLayout(layoutDF)
-    spacerItem1 = QtWidgets.QSpacerItem(20, 152, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-    vLayoutDF.addItem(spacerItem1)
-    self.tabWidget.addTab(tabDF, "Free Weekend")'''
-
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
@@ -147,11 +111,13 @@ def load_balanced_ivl(sched, ivl, _old):
 
     #--------Deck ignored by parameter--------
     ignore_deck = False
+    '''
     card = mw.reviewer.card
     if card:
         conf=sched.col.decks.confForDid(card.odid or card.did)
         if conf.get('DisableFW',0) == 2:
             ignore_deck = True
+    '''
     #--------Deck ignored by parameter--------
 
     for check_ivl in range(min_ivl, max_ivl + 1):
@@ -201,10 +167,9 @@ def load_balanced_ivl(sched, ivl, _old):
 
     return best_ivl
 
-#aqt.forms.dconf.Ui_Dialog.setupUi = wrap(aqt.forms.dconf.Ui_Dialog.setupUi, dconfsetupUi, pos="after")
-aqt.forms.dconf.Ui_Dialog.setupUi   = wrap(aqt.forms.dconf.Ui_Dialog.setupUi, setup_ui, pos="after")
-aqt.deckconf.DeckConf.loadConf      = wrap(aqt.deckconf.DeckConf.loadConf, load_conf, pos="after")
-aqt.deckconf.DeckConf.saveConf      = wrap(aqt.deckconf.DeckConf.saveConf, save_conf, pos="before")
+#aqt.forms.dconf.Ui_Dialog.setupUi   = wrap(aqt.forms.dconf.Ui_Dialog.setupUi, setup_ui, pos="after")
+#aqt.deckconf.DeckConf.loadConf      = wrap(aqt.deckconf.DeckConf.loadConf, load_conf, pos="after")
+#aqt.deckconf.DeckConf.saveConf      = wrap(aqt.deckconf.DeckConf.saveConf, save_conf, pos="before")
 
 # Patch Anki 2.0 and Anki 2.1 default scheduler
 anki.sched.Scheduler._fuzzedIvl = wrap(anki.sched.Scheduler._fuzzedIvl, load_balanced_ivl, 'around')
