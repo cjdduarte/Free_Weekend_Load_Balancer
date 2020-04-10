@@ -111,13 +111,11 @@ def load_balanced_ivl(sched, ivl, _old):
 
     #--------Deck ignored by parameter--------
     ignore_deck = False
-    '''
     card = mw.reviewer.card
     if card:
         conf=sched.col.decks.confForDid(card.odid or card.did)
         if conf.get('DisableFW',0) == 2:
             ignore_deck = True
-    '''
     #--------Deck ignored by parameter--------
 
     for check_ivl in range(min_ivl, max_ivl + 1):
@@ -167,9 +165,9 @@ def load_balanced_ivl(sched, ivl, _old):
 
     return best_ivl
 
-#aqt.forms.dconf.Ui_Dialog.setupUi   = wrap(aqt.forms.dconf.Ui_Dialog.setupUi, setup_ui, pos="after")
-#aqt.deckconf.DeckConf.loadConf      = wrap(aqt.deckconf.DeckConf.loadConf, load_conf, pos="after")
-#aqt.deckconf.DeckConf.saveConf      = wrap(aqt.deckconf.DeckConf.saveConf, save_conf, pos="before")
+aqt.forms.dconf.Ui_Dialog.setupUi   = wrap(aqt.forms.dconf.Ui_Dialog.setupUi, setup_ui, pos="after")
+aqt.deckconf.DeckConf.loadConf      = wrap(aqt.deckconf.DeckConf.loadConf, load_conf, pos="after")
+aqt.deckconf.DeckConf.saveConf      = wrap(aqt.deckconf.DeckConf.saveConf, save_conf, pos="before")
 
 # Patch Anki 2.0 and Anki 2.1 default scheduler
 anki.sched.Scheduler._fuzzedIvl = wrap(anki.sched.Scheduler._fuzzedIvl, load_balanced_ivl, 'around')
