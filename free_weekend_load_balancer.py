@@ -90,7 +90,7 @@ def load_conf(self):
 def save_conf(self):
     f = self.form
     c = self.conf
-    c['DisableFW'] = f.DisableFW.checkState()
+    c['DisableFW'] = int(f.DisableFW.checkState())
 
 def load_balanced_ivl(sched, ivl, _old):
     """Return the (largest) interval that has the least number of cards and falls within the 'fuzz'"""
